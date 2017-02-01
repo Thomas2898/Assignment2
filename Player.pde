@@ -53,6 +53,27 @@ class Player
     {
       pos.x = pos.x + 1.5;
     }
+    
+    //Code to keep the player from going off screen
+    if(player.pos.x + 15 >= width)
+    {
+      pos.x = width - 15;
+    }
+    
+    if(player.pos.x - 15 <= 0)
+    {
+      pos.x = 15;
+    }
+    
+    if(player.pos.y <= 0)
+    {
+      pos.y = 0;
+    }
+    
+    if(player.pos.y + 30 >= height)
+    {
+      pos.y = height - 30;
+    }
   }
   
 }
