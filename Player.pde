@@ -39,19 +39,19 @@ class Player
   {
     if (checkKey('w'))
     {
-      pos.y = pos.y - 1.5;
+      pos.y = pos.y - ps;
     }
     if (checkKey('s'))
     {
-      pos.y = pos.y + 1.5;
+      pos.y = pos.y + ps;
     }
     if (checkKey('a'))
     {
-      pos.x = pos.x - 1.5;
+      pos.x = pos.x - ps;
     }
     if (checkKey('d'))
     {
-      pos.x = pos.x + 1.5;
+      pos.x = pos.x + ps;
     }
     
     //Code to keep the player from going off screen

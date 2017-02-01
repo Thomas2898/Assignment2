@@ -1,3 +1,4 @@
+float ps = 1.5;
 void setup()
 {
   size(500, 500);
