@@ -2,7 +2,7 @@ class Level1
 {
   float x, y;
   float boxwidth = 30.0f;
-  float speed = 4.0f;
+  float speed = 6.0f;
   
   Level1(float x, float y)
   {

@@ -1,6 +1,7 @@
 float ps = 1.5; //Player speed
 float death; //Counter for deaths
 float l = 0; //To change level
+float k = 0; //Used to unlock LevelComplete
 
 void setup()
 {
@@ -50,13 +51,26 @@ void draw()
   levelc.create();
   println(death);
   
-  //LevelComplete hit box
-    if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+  
+    //Collision used between player and circle
+    if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
-      l = 1;
-      background(0);
-      player.pos.x = width/2;
-      player.pos.y = height - 30;
+      k = 1;
+      fill(0);
+      key1.x = -15;
+    }
+    
+  //Used to make sure the player grabs the yellow ball
+    if(k == 1)
+    {
+      //LevelComplete hit box
+      if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+      {
+         l = 1;
+         background(0);
+         player.pos.x = width/2;
+         player.pos.y = height - 30;
+      }
     }
       
    //Level 1 hit boxs 
