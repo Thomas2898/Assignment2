@@ -1,0 +1,31 @@
+class Level1
+{
+  float x, y;
+  float boxwidth = 30.0f;
+  float speed = 4.0f;
+  
+  Level1(float x, float y)
+  {
+    this.x = x;
+    this.y = y;
+    create();
+    
+  }
+  
+  void create()
+  {
+    noStroke();
+    fill(100, 0, 100);
+    
+    for(int i = 40; i < 400 ; i+= boxwidth + 36)
+    {
+       rect(x, i, boxwidth, boxwidth);
+    }
+    fill(0, 255, 0);
+    x += speed;
+    if(x + boxwidth > width || (x < 0))
+    {
+      speed = - speed;
+    }
+  }
+}
