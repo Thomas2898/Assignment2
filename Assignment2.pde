@@ -1,4 +1,5 @@
 float ps = 1.5;// Player speed
+float death;
 void setup()
 {
   size(500, 500);
@@ -36,7 +37,7 @@ void draw()
   player.update();
   player.render();
   level1.create();
-  
+  println(death);
    //Level 1 hit boxs 
    for(int i = 30; i < 400 ; i+= 30 + 36)
    {
@@ -45,6 +46,7 @@ void draw()
       println("HIT");
       player.pos.x = width/2;
       player.pos.y = height - 30;
+      death++;
     }
     
      if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30)
@@ -52,6 +54,7 @@ void draw()
       println("HIT2");
       player.pos.x = width/2;
       player.pos.y = height - 30;
+      death++;
     }
    }
 }
