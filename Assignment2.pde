@@ -36,4 +36,22 @@ void draw()
   player.update();
   player.render();
   level1.create();
+  
+   //Level 1 hit boxs 
+   for(int i = 30; i < 400 ; i+= 30 + 36)
+   {
+     if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y >= i + 5 && player.pos.y <= i + 30 + 8 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y >= i && player.pos.y <= i + 30 + 8)
+    {
+      println("HIT");
+      player.pos.x = width/2;
+      player.pos.y = height - 30;
+    }
+    
+     if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30)
+    {
+      println("HIT2");
+      player.pos.x = width/2;
+      player.pos.y = height - 30;
+    }
+   }
 }
