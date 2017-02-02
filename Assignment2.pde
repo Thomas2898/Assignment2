@@ -5,10 +5,12 @@ void setup()
   size(500, 500);
   player = new Player(width / 2, height - 30);
   level1 = new Level1(0.0f, 40.0f);
+  levelc = new LevelComplete(width/2-15, 0);
 }
 
 Player player;
 Level1 level1;
+LevelComplete levelc;
 boolean[] keys = new boolean[1000];
 
 void keyPressed()
@@ -37,6 +39,7 @@ void draw()
   player.update();
   player.render();
   level1.create();
+  levelc.create();
   println(death);
    //Level 1 hit boxs 
    for(int i = 30; i < 400 ; i+= 30 + 36)
