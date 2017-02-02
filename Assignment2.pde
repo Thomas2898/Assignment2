@@ -8,11 +8,13 @@ void setup()
   player = new Player(width / 2, height - 30);
   level1 = new Level1(0.0f, 40.0f);
   levelc = new LevelComplete(width/2-15, 0);
+  key1 = new Key(20, height/2 + 30);
 }
 
 Player player;
 Level1 level1;
 LevelComplete levelc;
+Key key1;
 boolean[] keys = new boolean[1000];
 
 void keyPressed()
@@ -38,6 +40,7 @@ void draw()
 {
   background(0);
   stroke(255);
+  key1.create();
   player.update();
   player.render();
   if(l == 0)//To stop level1 when levelcomplete box is hit
