@@ -2,6 +2,7 @@ float ps = 1.5; //Player speed
 float death; //Counter for deaths
 float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete
+float r = 0;
 
 void setup()
 {
@@ -58,8 +59,15 @@ void draw()
       k = 1;
       fill(0);
       key1.x = -15;
+      r = 0;
     }
     
+    if(r==1)
+    {
+      key1.x = 20;
+      key1.y = height/2 + 30;
+      k = 0;
+    }
   //Used to make sure the player grabs the yellow ball
     if(k == 1)
     {
@@ -82,6 +90,7 @@ void draw()
       player.pos.x = width/2;
       player.pos.y = height - 30;
       death++;
+      r = 1;
     }
     
      if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30)
@@ -90,6 +99,7 @@ void draw()
       player.pos.x = width/2;
       player.pos.y = height - 30;
       death++;
+      r = 1;
     }
    }
 }
