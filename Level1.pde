@@ -21,7 +21,6 @@ class Level1
     {
        rect(x, i, boxwidth, boxwidth);
     }
-    fill(0, 255, 0);
     x += speed;
     if(x + boxwidth > width || (x < 0))
     {

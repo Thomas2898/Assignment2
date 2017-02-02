@@ -14,7 +14,7 @@ class LevelComplete
   void create()
   {
     noStroke();
+    fill(0, 255, 0);
     rect(x, y, boxwidth, boxwidth);
-    fill(255, 255, 0);
   }
 }

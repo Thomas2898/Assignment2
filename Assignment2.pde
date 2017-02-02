@@ -1,5 +1,7 @@
-float ps = 1.5;// Player speed
-float death;
+float ps = 1.5; //Player speed
+float death; //Counter for deaths
+float l = 0; //To change level
+
 void setup()
 {
   size(500, 500);
@@ -38,9 +40,22 @@ void draw()
   stroke(255);
   player.update();
   player.render();
-  level1.create();
+  if(l == 0)//To stop level1 when levelcomplete box is hit
+  {
+    level1.create();
+  }
   levelc.create();
   println(death);
+  
+  //LevelComplete hit box
+    if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+    {
+      l = 1;
+      background(0);
+      player.pos.x = width/2;
+      player.pos.y = height - 30;
+    }
+      
    //Level 1 hit boxs 
    for(int i = 30; i < 400 ; i+= 30 + 36)
    {
