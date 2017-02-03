@@ -70,9 +70,9 @@ class Player
       pos.y = 30;
     }
     
-    if(player.pos.y + 30 >= height)
+    if(player.pos.y + 30 >= height - 30 && player.pos.x >= 0 && player.pos.x <= 235 || player.pos.y <= height - 30 && player.pos.x >= 265 && player.pos.x <= 500  )
     {
-      pos.y = height - 30;
+      pos.y = height - 60;
     }
   }
   
