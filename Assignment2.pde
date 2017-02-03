@@ -1,5 +1,5 @@
 float ps = 1.5; //Player speed
-float death; //Counter for deaths
+int death; //Counter for deaths
 float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete
 float r = 0;
@@ -11,12 +11,14 @@ void setup()
   level1 = new Level1(0.0f, 40.0f);
   levelc = new LevelComplete(width/2-15, 0);
   key1 = new Key(20, height/2 + 30);
+  death1 = new Death(0, 20);
 }
 
 Player player;
 Level1 level1;
 LevelComplete levelc;
 Key key1;
+Death death1;
 boolean[] keys = new boolean[1000];
 
 void keyPressed()
@@ -42,6 +44,7 @@ void draw()
 {
   background(0);
   stroke(255);
+  death1.create();
   key1.create();
   player.update();
   player.render();
