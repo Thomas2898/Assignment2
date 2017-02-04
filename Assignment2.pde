@@ -14,6 +14,7 @@ void setup()
   level3 = new Level3(width/2 - 15, height/2 - 20);
   levelc = new LevelComplete(width/2-15, 0);
   key1 = new Key(20, height/2 + 30);
+  key2 = new Key(width/2 - 40, height/2 - 5);
   death1 = new Death(0, 20);
   smooth();
 }
@@ -24,6 +25,7 @@ Level2 level2;
 Level3 level3;
 LevelComplete levelc;
 Key key1;
+Key key2;
 Death death1;
 boolean[] keys = new boolean[1000];
 
@@ -65,6 +67,7 @@ void draw()
   if(lvl == 2)
   {
     level3.create();
+    key2.create();
   }
   levelc.create();
   println(death);
@@ -79,7 +82,7 @@ void draw()
       r = 0;
     }
     
-    //Used for when player is hit, yellow ball goes back to spawn location
+    //Used for when player is killed, yellow ball goes back to spawn location
     if(r==1)
     {
       key1.x = 20;
@@ -88,7 +91,7 @@ void draw()
     }
     
     //Used to make sure the player grabs the yellow ball
-    if(k == 1)
+    if(k == 1 || k == 3)
     {
       //LevelComplete hit box
       if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
