@@ -1,7 +1,9 @@
 float ps = 2; //Player speed
 int death; //Counter for deaths
 float l = 0; //To change level
-float k = 0; //Used to unlock LevelComplete
+float k = 0; //Used to unlock LevelComplete for lvl1
+float k1 = 0; //Used to unlock LevelComplete for lvl2
+float k2 = 0; //Used to unlock LevelComplete for lvl3
 float r = 0;
 float lvl = 0;//Used to change level
 
@@ -16,7 +18,7 @@ void setup()
   key1 = new Key(20, height/2 + 30);
   key2 = new Key(width/2 - 40, height/2 - 5);
   key3 = new Key(width/2 + 40, height/2 - 5);
-  key4 = new Key(width/2, height/2 - 40);
+  key4 = new Key(width/2, height/2 + 40);
   death1 = new Death(0, 20);
   smooth();
 }
@@ -57,23 +59,23 @@ void draw()
   background(0);
   stroke(255);
   death1.create();
-  key1.create();
   player.update();
   player.render();
   if(lvl == 0)//To stop level1 when levelcomplete box is hit
   {
     level1.create();
+    key1.create();
   }
   if(lvl == 1)
   {
     level2.create();
+    key4.create();
   }
   if(lvl == 2)
   {
     level3.create();
     key2.create();
     key3.create();
-    //key4.create();
   }
   levelc.create();
   println(death);
@@ -83,7 +85,6 @@ void draw()
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
       k = 1;
-      fill(0);
       key1.x = -15;
       r = 0;
     }
@@ -91,8 +92,7 @@ void draw()
     //Key2 collision
     if(key2.x >= player.pos.x - 15 && key2.x <= player.pos.x + 15 && key2.y >= player.pos.y && key2.y <= player.pos.y + 30)
     {
-      k = 4;
-      fill(0);
+      k2++;
       key2.x = -100;
       r = 0;
     }
@@ -100,9 +100,15 @@ void draw()
     //Key3 collision
     if(key3.x >= player.pos.x - 15 && key3.x <= player.pos.x + 15 && key3.y >= player.pos.y && key3.y <= player.pos.y + 30)
     {
-      k++;
-      fill(0);
+      k2++;
       key3.x = -100;
+      r = 0;
+    }
+    
+    if(key4.x >= player.pos.x - 15 && key4.x <= player.pos.x + 15 && key4.y >= player.pos.y && key4.y <= player.pos.y + 30)
+    {
+      k1++;
+      key4.x = -100;
       r = 0;
     }
     
@@ -115,16 +121,51 @@ void draw()
       k = 0;
     }
     
-    //Used to make sure the player grabs the yellow ball
-    if(k == 1 || k == 3)
+    if(lvl == 0)
     {
-      //LevelComplete hit box
-      if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+      //Used to make sure the player grabs the yellow ball
+      if(k == 1)
       {
-         lvl++;
-         background(0);
-         player.pos.x = width/2;
-         player.pos.y = height - 30;
+        //LevelComplete hit box for level1
+        if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+        {
+           lvl++;
+           background(0);
+           player.pos.x = width/2;
+           player.pos.y = height - 30;
+        }
+      }
+    }
+    
+    if(lvl == 1)
+    {
+      ////Used to make sure the player grabs the yellow ball
+      if(k1 == 1)
+      {
+        //LevelComplete hit box for level2
+        if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+        {
+           lvl++;
+           background(0);
+           player.pos.x = width/2;
+           player.pos.y = height - 30;
+        }
+      }
+    }
+    
+    if(lvl == 2)
+    {
+      ////Used to make sure the player grabs the yellow ball
+      if(k2 == 2)
+      {
+        //LevelComplete hit box for level3
+        if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+        {
+           lvl++;
+           background(0);
+           player.pos.x = width/2;
+           player.pos.y = height - 30;
+        }
       }
     }
       
