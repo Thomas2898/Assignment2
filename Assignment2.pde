@@ -73,7 +73,7 @@ void draw()
     level3.create();
     key2.create();
     key3.create();
-    key4.create();
+    //key4.create();
   }
   levelc.create();
   println(death);
@@ -91,9 +91,18 @@ void draw()
     //Key2 collision
     if(key2.x >= player.pos.x - 15 && key2.x <= player.pos.x + 15 && key2.y >= player.pos.y && key2.y <= player.pos.y + 30)
     {
-      k = 1;
+      k = 4;
       fill(0);
-      key1.x = -100;
+      key2.x = -100;
+      r = 0;
+    }
+    
+    //Key3 collision
+    if(key3.x >= player.pos.x - 15 && key3.x <= player.pos.x + 15 && key3.y >= player.pos.y && key3.y <= player.pos.y + 30)
+    {
+      k++;
+      fill(0);
+      key3.x = -100;
       r = 0;
     }
     
@@ -102,6 +111,7 @@ void draw()
     {
       key1.x = 20;
       key1.y = height/2 + 30;
+      key2.x = width/2 - 40;
       k = 0;
     }
     

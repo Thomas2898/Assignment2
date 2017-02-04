@@ -2,7 +2,7 @@ class Level3
 {
   float cx, cy;
   float boxwidth = 30.0f;
-  float speed = 0.03f;
+  float speed = 0.02f;
   float theta = 0;
   float theta1 = 0;
   float radius = 200;
@@ -18,7 +18,6 @@ class Level3
   
   void create()
   {
-    background(0);
     stroke(255);
     noFill();
     ellipse(cx, cy, radius * 2, radius * 2);
