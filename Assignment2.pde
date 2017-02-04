@@ -15,6 +15,8 @@ void setup()
   levelc = new LevelComplete(width/2-15, 0);
   key1 = new Key(20, height/2 + 30);
   key2 = new Key(width/2 - 40, height/2 - 5);
+  key3 = new Key(width/2 + 40, height/2 - 5);
+  key4 = new Key(width/2, height/2 - 40);
   death1 = new Death(0, 20);
   smooth();
 }
@@ -26,6 +28,8 @@ Level3 level3;
 LevelComplete levelc;
 Key key1;
 Key key2;
+Key key3;
+Key key4;
 Death death1;
 boolean[] keys = new boolean[1000];
 
@@ -68,17 +72,28 @@ void draw()
   {
     level3.create();
     key2.create();
+    key3.create();
+    key4.create();
   }
   levelc.create();
   println(death);
   
   
-    //Collision used between player and circle
+    //Key1 collision
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
       k = 1;
       fill(0);
       key1.x = -15;
+      r = 0;
+    }
+    
+    //Key2 collision
+    if(key2.x >= player.pos.x - 15 && key2.x <= player.pos.x + 15 && key2.y >= player.pos.y && key2.y <= player.pos.y + 30)
+    {
+      k = 1;
+      fill(0);
+      key1.x = -100;
       r = 0;
     }
     
