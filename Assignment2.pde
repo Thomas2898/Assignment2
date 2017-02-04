@@ -11,14 +11,17 @@ void setup()
   player = new Player(width / 2, height - 30);
   level1 = new Level1(0.0f, 40.0f);
   level2 = new Level2(0.0f, 40.0f);
+  level3 = new Level3(width/2 - 15, height/2 - 20);
   levelc = new LevelComplete(width/2-15, 0);
   key1 = new Key(20, height/2 + 30);
   death1 = new Death(0, 20);
+  smooth();
 }
 
 Player player;
 Level1 level1;
 Level2 level2;
+Level3 level3;
 LevelComplete levelc;
 Key key1;
 Death death1;
@@ -59,6 +62,10 @@ void draw()
   {
     level2.create();
   }
+  if(lvl == 2)
+  {
+    level3.create();
+  }
   levelc.create();
   println(death);
   
@@ -72,19 +79,21 @@ void draw()
       r = 0;
     }
     
+    //Used for when player is hit, yellow ball goes back to spawn location
     if(r==1)
     {
       key1.x = 20;
       key1.y = height/2 + 30;
       k = 0;
     }
-  //Used to make sure the player grabs the yellow ball
+    
+    //Used to make sure the player grabs the yellow ball
     if(k == 1)
     {
       //LevelComplete hit box
       if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
       {
-         lvl = 1;
+         lvl++;
          background(0);
          player.pos.x = width/2;
          player.pos.y = height - 30;
@@ -118,12 +127,12 @@ void draw()
    */
    
    
-   //Level2 hit boxs
+   /*//Level2 hit boxs
    if(lvl == 1)
    {
     for(int i = 5; i < 510 ; i+= level2.boxwidth + 36)
     {
-       if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y)
+       if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15)
       {
         println("HIT");
         player.pos.x = width/2;
@@ -162,5 +171,5 @@ void draw()
         r = 1;
       }
     }
-   }
+   }*/
 }
