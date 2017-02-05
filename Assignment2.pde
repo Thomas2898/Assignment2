@@ -103,9 +103,10 @@ void draw()
     {
       k2++;
       key3.x = -100;
-      r = 0;
+      r2 = 0;
     }
     
+    //Key 4 collision
     if(key4.x >= player.pos.x - 15 && key4.x <= player.pos.x + 15 && key4.y >= player.pos.y && key4.y <= player.pos.y + 30)
     {
       k1++;
@@ -126,7 +127,9 @@ void draw()
     {
       key2.x = width/2 - 40;
       key2.y = height/2 - 5;
-      k1 = 0;
+      key3.x = width/2 + 40;
+      key3.y = height/2 - 5;
+      k2 = 0;
     }
     
     if(lvl == 0)
