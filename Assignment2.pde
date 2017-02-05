@@ -241,4 +241,51 @@ void draw()
       }
     }
    }*/
+   
+   //Level 3 hit boxs 
+   if(lvl == 2)
+   {
+     for(int i = 40 ; i < 440 ; i+=40)
+     {
+        level3.x1 = level3.cx + sin(level3.theta) * (level3.radius - i);
+        level3.y1 = level3.cy - cos(level3.theta) * (level3.radius - i);
+       if(player.pos.x - 15 >= level3.x1 && player.pos.x - 15 <= level3.x1 + 30 && player.pos.y >= level3.y1 && player.pos.y <= level3.y1 + 30 || player.pos.x + 15 >= level3.x1 && player.pos.x + 15 <= level3.x1 + 30 && player.pos.y >= level3.y1 && player.pos.y <= level3.y1 + 30)
+      {
+        println("HIT");
+        player.pos.x = width/2;
+        player.pos.y = height - 30;
+        death++;
+        r = 1;
+      }
+    
+       if(player.pos.x - 15 >= level3.x1 && player.pos.x - 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1 || player.pos.x + 15 >= level3.x1 && player.pos.x + 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1)
+      {
+        println("HIT2");
+        player.pos.x = width/2;
+        player.pos.y = height - 30;
+        death++;
+        r = 1;
+      }
+      
+        level3.x2 = level3.cx + sin(level3.theta1) * (level3.radius - i);
+        level3.y2 = level3.cy - cos(level3.theta1) * (level3.radius - i);
+       if(player.pos.x - 15 >= level3.x2 && player.pos.x - 15 <= level3.x2 + 30 && player.pos.y >= level3.y2 && player.pos.y <= level3.y2 + 30 || player.pos.x + 15 >= level3.x2 && player.pos.x + 15 <= level3.x2 + 30 && player.pos.y >= level3.y2 && player.pos.y <= level3.y2 + 30)
+      {
+        println("HIT");
+        player.pos.x = width/2;
+        player.pos.y = height - 30;
+        death++;
+        r = 1;
+      }
+    
+       if(player.pos.x - 15 >= level3.x2 && player.pos.x - 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2 || player.pos.x + 15 >= level3.x2 && player.pos.x + 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2)
+      {
+        println("HIT2");
+        player.pos.x = width/2;
+        player.pos.y = height - 30;
+        death++;
+        r = 1;
+      }
+   }
+ }
 }
