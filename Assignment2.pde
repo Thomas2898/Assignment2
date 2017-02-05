@@ -4,8 +4,9 @@ float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete for lvl1
 float k1 = 0; //Used to unlock LevelComplete for lvl2
 float k2 = 0; //Used to unlock LevelComplete for lvl3
-float r = 0;
-float r2 = 0; //Used to place the keys back if player hits block
+float r = 0;//Used to place the keys back if player hits block for level 1
+float r1 = 0;//Used to place the keys back if player hits block for level 2 
+float r2 = 0; //Used to place the keys back if player hits block for level 3
 float lvl = 0;//Used to change level
 
 void setup()
@@ -19,7 +20,7 @@ void setup()
   key1 = new Key(20, height/2 + 30);
   key2 = new Key(width/2 - 40, height/2 - 5);
   key3 = new Key(width/2 + 40, height/2 - 5);
-  key4 = new Key(width/2, height/2 + 40);
+  key4 = new Key(width/2 - 40, height/2 + 10);
   death1 = new Death(0, 20);
   smooth();
 }
@@ -111,7 +112,7 @@ void draw()
     {
       k1++;
       key4.x = -100;
-      r = 0;
+      r1 = 0;
     }
     
    
@@ -120,6 +121,13 @@ void draw()
       key1.x = 20;
       key1.y = height/2 + 30;
       k = 0;
+    }
+    
+     if(r1==1)
+    {
+      key4.x = width/2 - 40;
+      key4.y = height/2 + 10;
+      k1 = 0;
     }
     
     //Used for when player is killed, key2 goes back to spawn location
@@ -180,7 +188,7 @@ void draw()
       }
     }
       
-   /*//Level 1 hit boxs 
+   //Level 1 hit boxs 
    if(lvl == 0)
    {
      for(int i = 30; i < 400 ; i+= 30 + 36)
@@ -204,10 +212,9 @@ void draw()
       }
    }
  }
-   */
    
    
-   /*//Level2 hit boxs
+   //Level2 hit boxs
    if(lvl == 1)
    {
     for(int i = 5; i < 510 ; i+= level2.boxwidth + 36)
@@ -251,7 +258,7 @@ void draw()
         r = 1;
       }
     }
-   }*/
+   }
    
    //Level 3 hit boxs 
    if(lvl == 2)
