@@ -19,19 +19,14 @@ class Level3
   
   void create()
   {
-    stroke(255);
-    noFill();
-    ellipse(cx, cy, radius * 2, radius * 2);
-  
+    noStroke();
+    fill(100, 0, 100);
     for(int i = 40 ; i < 440 ; i+=40)
     {
       x = cx + sin(theta) * radius;
       y = cy - cos(theta) * radius;
       x1 = cx + sin(theta) * (radius - i);
       y1 = cy - cos(theta) * (radius - i);
-      line(cx, cy, x, y);
-      noStroke();
-      fill(100, 0, 100);
       rect(x, y, 30, 30);
       rect(x1, y1, 30, 30);
     }
@@ -42,9 +37,6 @@ class Level3
       y = cy - cos(theta1) * radius;
       x2 = cx + sin(theta1) * (radius - i);
       y2 = cy - cos(theta1) * (radius - i);
-      line(cx, cy, x, y);
-      noStroke();
-      fill(100, 0, 100);
       rect(x, y, 30, 30);
       rect(x2, y2, 30, 30);
     }

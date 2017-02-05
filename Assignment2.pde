@@ -5,6 +5,7 @@ float k = 0; //Used to unlock LevelComplete for lvl1
 float k1 = 0; //Used to unlock LevelComplete for lvl2
 float k2 = 0; //Used to unlock LevelComplete for lvl3
 float r = 0;
+float r2 = 0; //Used to place the keys back if player hits block
 float lvl = 0;//Used to change level
 
 void setup()
@@ -94,7 +95,7 @@ void draw()
     {
       k2++;
       key2.x = -100;
-      r = 0;
+      r2 = 0;
     }
     
     //Key3 collision
@@ -112,13 +113,20 @@ void draw()
       r = 0;
     }
     
-    //Used for when player is killed, yellow ball goes back to spawn location
+   
     if(r==1)
     {
       key1.x = 20;
       key1.y = height/2 + 30;
-      key2.x = width/2 - 40;
       k = 0;
+    }
+    
+    //Used for when player is killed, key2 goes back to spawn location
+    if(r2==1)
+    {
+      key2.x = width/2 - 40;
+      key2.y = height/2 - 5;
+      k1 = 0;
     }
     
     if(lvl == 0)
@@ -255,7 +263,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r2 = 1;
       }
     
        if(player.pos.x - 15 >= level3.x1 && player.pos.x - 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1 || player.pos.x + 15 >= level3.x1 && player.pos.x + 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1)
@@ -264,7 +272,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r2 = 1;
       }
       
         level3.x2 = level3.cx + sin(level3.theta1) * (level3.radius - i);
@@ -275,7 +283,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r2 = 1;
       }
     
        if(player.pos.x - 15 >= level3.x2 && player.pos.x - 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2 || player.pos.x + 15 >= level3.x2 && player.pos.x + 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2)
@@ -284,7 +292,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r2 = 1;
       }
    }
  }
