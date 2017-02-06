@@ -2,7 +2,7 @@ class Level3
 {
   float cx, cy;
   float boxwidth = 30.0f;
-  float speed = 0.01f;
+  float speed = 0.015f;
   float theta = 0;
   float theta1 = 0;
   float radius = 200;

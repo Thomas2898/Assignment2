@@ -16,6 +16,9 @@ class Level1Button
     {
       overB = true;
       fill(255);
+      textSize(20);
+      text("D:", cx + 105, cy + 25);
+      text(death, cx + 125, cy + 25);
       rect(cx, cy, 100, 40);
       fill(0);
     }
