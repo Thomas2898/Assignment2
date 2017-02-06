@@ -15,6 +15,7 @@ void setup()
   size(500, 500);
   player = new Player(width / 2, height - 30);
   levelscreen = new Levelscreen(width/2 - 40, 40);
+  lvl1button = new Level1Button(width/2 - 45, 80);
   level1 = new Level1(0.0f, 40.0f);
   level2 = new Level2(0.0f, 40.0f);
   level3 = new Level3(width/2 - 15, height/2 - 20);
@@ -29,6 +30,7 @@ void setup()
 
 Player player;
 Levelscreen levelscreen;
+Level1Button lvl1button;
 Level1 level1;
 Level2 level2;
 Level3 level3;
@@ -66,6 +68,8 @@ void draw()
   if(lvlscreen == 0)
   {
     levelscreen.create();
+    lvl1button.updateOnButton(mouseX, mouseY);
+    lvl1button.mousePressed();
   }
   else
   {
