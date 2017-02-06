@@ -104,7 +104,12 @@ void draw()
     println(death);
   }
   
-  
+    /*if (keyCode == UP) 
+    {
+      lvlscreen = 0;
+    }
+    */
+    
     //Key1 collision
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
