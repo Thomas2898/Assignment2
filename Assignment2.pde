@@ -8,11 +8,13 @@ float r = 0;//Used to place the keys back if player hits block for level 1
 float r1 = 0;//Used to place the keys back if player hits block for level 2 
 float r2 = 0; //Used to place the keys back if player hits block for level 3
 float lvl = 0;//Used to change level
+float lvlscreen = 0; //Used to show levelscreen
 
 void setup()
 {
   size(500, 500);
   player = new Player(width / 2, height - 30);
+  levelscreen = new Levelscreen(width/2 - 40, 40);
   level1 = new Level1(0.0f, 40.0f);
   level2 = new Level2(0.0f, 40.0f);
   level3 = new Level3(width/2 - 15, height/2 - 20);
@@ -26,6 +28,7 @@ void setup()
 }
 
 Player player;
+Levelscreen levelscreen;
 Level1 level1;
 Level2 level2;
 Level3 level3;
@@ -60,27 +63,34 @@ void draw()
 {
   background(0);
   stroke(255);
-  death1.create();
-  player.update();
-  player.render();
-  if(lvl == 0)//To stop level1 when levelcomplete box is hit
+  if(lvlscreen == 0)
   {
-    level1.create();
-    key1.create();
+    levelscreen.create();
   }
-  if(lvl == 1)
+  else
   {
-    level2.create();
-    key4.create();
+    death1.create();
+    player.update();
+    player.render();
+    if(lvl == 0)//To stop level1 when levelcomplete box is hit
+    {
+      level1.create();
+      key1.create();
+    }
+    if(lvl == 1)
+    {
+      level2.create();
+      key4.create();
+    }
+    if(lvl == 2)
+    {
+      level3.create();
+      key2.create();
+      key3.create();
+    }
+    levelc.create();
+    println(death);
   }
-  if(lvl == 2)
-  {
-    level3.create();
-    key2.create();
-    key3.create();
-  }
-  levelc.create();
-  println(death);
   
   
     //Key1 collision
