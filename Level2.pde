@@ -9,7 +9,7 @@ class Level2
   {
     this.x = x;
     this.y = y;
-    y1 = 470;
+    y1 = 440;
     create();
     
   }
@@ -32,12 +32,12 @@ class Level2
     }
     y1+= speed1;
     y += speed;
-    if(y + boxwidth > height || (y < 30))
+    if(y + boxwidth > height - 30 || (y < 30))
     {
       speed = - speed;
     }
     
-    if(y1 + boxwidth > height || (y1 < 30))
+    if(y1 + boxwidth > height - 30 || (y1 < 30))
     {
       speed1 = - speed1;
     }

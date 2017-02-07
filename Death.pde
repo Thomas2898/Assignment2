@@ -12,7 +12,7 @@ class Death
   
   void create()
   {
-    fill(255, 255, 0);
+    fill(0);
     textSize(20);
     text(death, x + 75, y);
     text("Deaths:", x, y);
