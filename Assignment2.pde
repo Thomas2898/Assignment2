@@ -1,6 +1,9 @@
 float ps = 2; //Player speed
 int death; //Counter for deaths
 int d1;//Count deaths for level 1
+int d2;//Count deaths for level 1
+int d3;//Count deaths for level 1
+int d4;//Count deaths for level 1
 float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete for lvl1
 float k1 = 0; //Used to unlock LevelComplete for lvl2
@@ -12,6 +15,10 @@ float r2 = 0; //Used to place the keys back if player hits block for level 3
 float r3 = 0; //Used to place the keys back if player hits block for level 4
 float lvl = 0;//Used to change level
 float lvlscreen = 0; //Used to show levelscreen
+float t = 0;//Counting time for level1
+float t1 = 0;
+float t2 = 0;
+float t3 = 0;
 
 void setup()
 {
@@ -95,6 +102,7 @@ void draw()
     lvl3button.mousePressed();
     lvl4button.updateOnButton(mouseX, mouseY);
     lvl4button.mousePressed();
+    time.timeAccumulator= 0;
   }
   else
   {
@@ -102,36 +110,36 @@ void draw()
     ebutton.updateOnButton(mouseX, mouseY);
     ebutton.mousePressed();
     death1.create();
-    time.create();
     player.update();
     player.render();
     if(lvl == 0)//To stop level1 when levelcomplete box is hit
     {
       level1.create();
       key1.create();
-      d1 = death;
+      time.create();
     }
     if(lvl == 1)
     {
       level2.create();
       key4.create();
+      time.create();
     }
     if(lvl == 2)
     {
       level3.create();
       key2.create();
       key3.create();
+      time.create();
     }
     
     if(lvl == 3)
     {
       level4.create();
       key5.create();
+      time.create();
     }
     levelc.create();
-    println(death);
   }
-    println(d1);
     //Key1 collision
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
@@ -216,6 +224,10 @@ void draw()
            background(0);
            player.pos.x = width/2;
            player.pos.y = height - 30;
+           t = time.timeAccumulator;
+           time.timeAccumulator= 0;
+           d1 = death;
+           death = 0;
         }
       }
     }
@@ -232,6 +244,10 @@ void draw()
            background(0);
            player.pos.x = width/2;
            player.pos.y = height - 30;
+           t1 = time.timeAccumulator;
+           time.timeAccumulator= 0;
+           d2 = death;
+           death = 0;
         }
       }
     }
@@ -250,6 +266,10 @@ void draw()
            player.pos.y = height/2 - 15;
            levelc.x = width/2 - 15;
            levelc.y = height/2 - 15;
+           t2 = time.timeAccumulator;
+           time.timeAccumulator= 0;
+           d3 = death;
+           death = 0;
         }
       }
     }
@@ -264,6 +284,10 @@ void draw()
         {
            lvl++;
            background(0);
+           t3 = time.timeAccumulator;
+           time.timeAccumulator= 0;
+           d4 = death;
+           death = 0;
         }
       }
     }

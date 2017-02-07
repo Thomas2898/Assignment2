@@ -19,6 +19,8 @@ class Level1Button
       textSize(20);
       text("D:", cx + 105, cy + 25);
       text(d1, cx + 125, cy + 25);
+      text("T:", cx + 185, cy + 25);
+      text(t, cx + 205, cy + 25);
       rect(cx, cy, 100, 40);
       fill(0);
     }

@@ -17,6 +17,11 @@ class Level2Button
       overB = true;
       fill(255);
       rect(cx, cy, 100, 40);
+      text("D:", cx + 105, cy + 25);
+      text(d2, cx + 125, cy + 25);
+      text("T:", cx + 185, cy + 25);
+      text(t1, cx + 205, cy + 25);
+      rect(cx, cy, 100, 40);
       fill(0);
     }
     else
