@@ -13,9 +13,9 @@ class Background
   void create()
   {
     fill(255);
-    rect(0, 0, 240, 30);
-    rect(270, 0, 510, 30);
-    rect(0, height - 30, 240, 30);
-    rect(270, height - 30, 510, 30);
+    rect(0, 0, 235, 30);
+    rect(265, 0, 510, 30);
+    rect(0, height - 30, 2235, 30);
+    rect(265,  height - 30, 510, 30);
   }
 }

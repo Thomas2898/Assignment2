@@ -22,7 +22,7 @@ float t3 = 0;
 
 void setup()
 {
-  size(510, 500);
+  size(500, 500);
   player = new Player(width / 2, height - 30);
   in = new Instructions(0, 5);
   background = new Background(width/2, height/2);
@@ -150,9 +150,11 @@ void draw()
     }
     
     //Used to bring up instructions page
-    if(lvlscreen == 1)
+    if(lvlscreen == 2)
     {
       background(0);
+      ebutton.updateOnButton(mouseX, mouseY);
+      ebutton.mousePressed();
       in.create();
     }
     levelc.create();
