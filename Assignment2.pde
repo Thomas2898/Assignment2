@@ -15,6 +15,7 @@ void setup()
   size(500, 500);
   player = new Player(width / 2, height - 30);
   background = new Background(width/2, height/2);
+  ebutton = new ExitButton(width - 20, 0);
   levelscreen = new Levelscreen(width/2 - 40, 40);
   lvl1button = new Level1Button(width/2 - 45, 80);
   lvl2button = new Level2Button(width/2 - 45, 140);
@@ -33,6 +34,7 @@ void setup()
 
 Player player;
 Background background;
+ExitButton ebutton;
 Levelscreen levelscreen;
 Level1Button lvl1button;
 Level2Button lvl2button;
@@ -84,6 +86,8 @@ void draw()
   else
   {
     background.create();
+    ebutton.updateOnButton(mouseX, mouseY);
+    ebutton.mousePressed();
     death1.create();
     player.update();
     player.render();
