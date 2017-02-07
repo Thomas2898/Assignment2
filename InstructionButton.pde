@@ -36,7 +36,7 @@ class InstructionButton
     {
       if(overB)
       {
-        lvlscreen = 2;
+        lvlscreen = 1;
       }
     }
   }

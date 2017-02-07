@@ -24,6 +24,7 @@ void setup()
 {
   size(510, 500);
   player = new Player(width / 2, height - 30);
+  in = new Instructions(0, 5);
   background = new Background(width/2, height/2);
   ebutton = new ExitButton(width - 20, 0);
   levelscreen = new Levelscreen(width/2 - 40, 40);
@@ -48,6 +49,7 @@ void setup()
 }
 
 Player player;
+Instructions in;
 Background background;
 ExitButton ebutton;
 Levelscreen levelscreen;
@@ -145,6 +147,13 @@ void draw()
       level4.create();
       key5.create();
       time.create();
+    }
+    
+    //Used to bring up instructions page
+    if(lvlscreen == 1)
+    {
+      background(0);
+      in.create();
     }
     levelc.create();
   }
