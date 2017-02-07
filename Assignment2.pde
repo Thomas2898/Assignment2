@@ -12,7 +12,7 @@ float lvlscreen = 0; //Used to show levelscreen
 
 void setup()
 {
-  size(500, 500);
+  size(510, 500);
   player = new Player(width / 2, height - 30);
   background = new Background(width/2, height/2);
   ebutton = new ExitButton(width - 20, 0);
@@ -23,6 +23,7 @@ void setup()
   level1 = new Level1(0.0f, 40.0f);
   level2 = new Level2(0.0f, 40.0f);
   level3 = new Level3(width/2 - 15, height/2 - 20);
+  level4 = new Level4(width/2 - 15, height/2 - 20);
   levelc = new LevelComplete(width/2-15, 0);
   key1 = new Key(20, height/2 + 30);
   key2 = new Key(width/2 - 40, height/2 - 5);
@@ -42,6 +43,7 @@ Level3Button lvl3button;
 Level1 level1;
 Level2 level2;
 Level3 level3;
+Level4 level4;
 LevelComplete levelc;
 Key key1;
 Key key2;
@@ -106,6 +108,11 @@ void draw()
       level3.create();
       key2.create();
       key3.create();
+    }
+    
+    if(lvl == 3)
+    {
+      level4.create();
     }
     levelc.create();
     println(death);
@@ -210,8 +217,10 @@ void draw()
         {
            lvl++;
            background(0);
-           player.pos.x = width/2;
-           player.pos.y = height - 30;
+           player.pos.x = width/2 - 15;
+           player.pos.y = height/2 - 15;
+           levelc.x = width/2 - 15;
+           levelc.y = height/2 - 15;
         }
       }
     }

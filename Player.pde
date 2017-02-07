@@ -65,12 +65,12 @@ class Player
       pos.x = 15;
     }
     
-     if(player.pos.y <= 30 && player.pos.x >= 0 && player.pos.x <= 235 || player.pos.y <= 30 && player.pos.x >= 265 && player.pos.x <= 510 )
+     if(player.pos.y <= 30 && player.pos.x >= 0 && player.pos.x <= 240 || player.pos.y <= 30 && player.pos.x >= 270 && player.pos.x <= 510 )
     {
       pos.y = 30;
     }
     
-    if(player.pos.y + 30 >= height - 30 && player.pos.x >= 0 && player.pos.x <= 235 || player.pos.y + 30 >=  height - 30 && player.pos.x >= 265 && player.pos.x <= 510)
+    if(player.pos.y + 30 >= height - 30 && player.pos.x >= 0 && player.pos.x <= 240 || player.pos.y + 30 >=  height - 30 && player.pos.x >= 270 && player.pos.x <= 510)
     {
       pos.y = height - 60;
     }
