@@ -12,7 +12,7 @@ class ExitButton
   void updateOnButton(int x, int y)
   {
     noStroke();
-    if(mouseX >= cx && mouseX <= cx + 100 && mouseY >= cy && mouseY <= cy + 40)
+    if(mouseX >= cx && mouseX <= cx + 20 && mouseY >= cy && mouseY <= cy + 20)
     {
       overB = true;
       fill(255, 0, 0);
