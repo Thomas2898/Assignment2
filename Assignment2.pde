@@ -361,7 +361,7 @@ void draw()
       if(player.pos.x - 15 >= level4.x1 && player.pos.x - 15 <= level4.x1 + 30 && player.pos.y >= level4.y1 && player.pos.y <= level4.y1 + 30 || player.pos.x + 15 >= level4.x1 && player.pos.x + 15 <= level4.x1 + 30 && player.pos.y >= level4.y1 && player.pos.y <= level4.y1 + 30)
       {
         println("no");
-        player.pos.x = width/2 - 15;
+        player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;
       }
@@ -369,7 +369,7 @@ void draw()
        if(player.pos.x - 15 >= level4.x1 && player.pos.x - 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1 || player.pos.x + 15 >= level4.x1 && player.pos.x + 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1)
       {
         println("HIT2");
-        player.pos.x = width/2 - 15;
+        player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;
       }

@@ -38,6 +38,10 @@ class Level3Button
       {
         lvl = 2;
         lvlscreen = 1;
+        levelc.x = width/2-15;
+        levelc.y = 0;
+        player.pos.x = width/2;
+        player.pos.y = height - 30;
       }
     }
   }
