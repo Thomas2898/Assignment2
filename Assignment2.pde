@@ -31,6 +31,7 @@ void setup()
   lvl2button = new Level2Button(width/2 - 45, 140);
   lvl3button = new Level3Button(width/2 - 45, 200);
   lvl4button = new Level4Button(width/2 - 45, 260);
+  i = new InstructionButton(width/2 - 65, 320);
   level1 = new Level1(0.0f, 40.0f);
   level2 = new Level2(0.0f, 40.0f);
   level3 = new Level3(width/2 - 15, height/2 - 20);
@@ -54,6 +55,7 @@ Level1Button lvl1button;
 Level2Button lvl2button;
 Level3Button lvl3button;
 Level4Button lvl4button;
+InstructionButton i;
 Level1 level1;
 Level2 level2;
 Level3 level3;
@@ -102,7 +104,13 @@ void draw()
     lvl3button.mousePressed();
     lvl4button.updateOnButton(mouseX, mouseY);
     lvl4button.mousePressed();
+    i.updateOnButton(mouseX, mouseY);
+    i.mousePressed();
     time.timeAccumulator= 0;
+    r=1;
+    r1=1;
+    r2=1;
+    r3=1;
   }
   else
   {
@@ -367,7 +375,7 @@ void draw()
    }
    
    //Level 3 hit boxs 
-  /* if(lvl == 2)
+   if(lvl == 2)
    {
      println("LEVEL3");
      for(int i = 40 ; i < 440 ; i+=40)
@@ -412,7 +420,7 @@ void draw()
         r2 = 1;
       }
     }
-   }*/
+   }
     
    if(lvl == 3)
    {
