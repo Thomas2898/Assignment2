@@ -249,6 +249,20 @@ void draw()
       }
     }
     
+     if(lvl == 3)
+    {
+      ////Used to make sure the player grabs the yellow ball
+      if(k3 == 1)
+      {
+        //LevelComplete hit box for level3
+        if(player.pos.x - level1.boxwidth/2 >= levelc.x && player.pos.x - level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth || player.pos.x + level1.boxwidth/2 >= levelc.x && player.pos.x + level1.boxwidth/2 <= levelc.x + level1.boxwidth && player.pos.y >=levelc.y && player.pos.y <= levelc.y + level1.boxwidth )
+        {
+           lvl++;
+           background(0);
+        }
+      }
+    }
+    
       
    //Level 1 hit boxs 
    if(lvl == 0)
