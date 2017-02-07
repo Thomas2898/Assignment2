@@ -14,6 +14,7 @@ void setup()
 {
   size(500, 500);
   player = new Player(width / 2, height - 30);
+  background = new Background(width/2, height/2);
   levelscreen = new Levelscreen(width/2 - 40, 40);
   lvl1button = new Level1Button(width/2 - 45, 80);
   lvl2button = new Level2Button(width/2 - 45, 140);
@@ -31,6 +32,7 @@ void setup()
 }
 
 Player player;
+Background background;
 Levelscreen levelscreen;
 Level1Button lvl1button;
 Level2Button lvl2button;
@@ -81,6 +83,7 @@ void draw()
   }
   else
   {
+    background.create();
     death1.create();
     player.update();
     player.render();
@@ -103,12 +106,6 @@ void draw()
     levelc.create();
     println(death);
   }
-  
-    /*if (keyCode == UP) 
-    {
-      lvlscreen = 0;
-    }
-    */
     
     //Key1 collision
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
