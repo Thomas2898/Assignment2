@@ -4,9 +4,11 @@ float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete for lvl1
 float k1 = 0; //Used to unlock LevelComplete for lvl2
 float k2 = 0; //Used to unlock LevelComplete for lvl3
+float k3 = 0; //Used to unlock LevelComplete for lvl4
 float r = 0;//Used to place the keys back if player hits block for level 1
 float r1 = 0;//Used to place the keys back if player hits block for level 2 
 float r2 = 0; //Used to place the keys back if player hits block for level 3
+float r3 = 0; //Used to place the keys back if player hits block for level 4
 float lvl = 0;//Used to change level
 float lvlscreen = 0; //Used to show levelscreen
 
@@ -30,6 +32,7 @@ void setup()
   key2 = new Key(width/2 - 40, height/2 - 5);
   key3 = new Key(width/2 + 40, height/2 - 5);
   key4 = new Key(width/2 - 40, height/2 + 10);
+  key5 = new Key(width/2 - 200, height/2 + - 200);
   death1 = new Death(0, 20);
   smooth();
 }
@@ -51,6 +54,7 @@ Key key1;
 Key key2;
 Key key3;
 Key key4;
+Key key5;
 Death death1;
 boolean[] keys = new boolean[1000];
 
@@ -117,6 +121,7 @@ void draw()
     if(lvl == 3)
     {
       level4.create();
+      key5.create();
     }
     levelc.create();
     println(death);
@@ -154,6 +159,14 @@ void draw()
       r1 = 0;
     }
     
+     //Key 5 collision
+    if(key5.x >= player.pos.x - 15 && key5.x <= player.pos.x + 15 && key5.y >= player.pos.y && key5.y <= player.pos.y + 30)
+    {
+      k3++;
+      key5.x = -100;
+      r3 = 0;
+    }
+    
    
     if(r==1)
     {
@@ -169,7 +182,7 @@ void draw()
       k1 = 0;
     }
     
-    //Used for when player is killed, key2 goes back to spawn location
+    //Used for when player is killed, key2/key3 goes back to spawn location
     if(r2==1)
     {
       key2.x = width/2 - 40;
@@ -177,6 +190,13 @@ void draw()
       key3.x = width/2 + 40;
       key3.y = height/2 - 5;
       k2 = 0;
+    }
+    
+    if(r3==1)
+    {
+      key5.x = width/2 - 200;
+      key5.y = height/2 + - 200;
+      k3 = 0;
     }
     
     if(lvl == 0)
@@ -228,6 +248,7 @@ void draw()
         }
       }
     }
+    
       
    //Level 1 hit boxs 
    if(lvl == 0)
@@ -364,6 +385,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;
+        r3 = 1;
       }
       
        if(player.pos.x - 15 >= level4.x1 && player.pos.x - 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1 || player.pos.x + 15 >= level4.x1 && player.pos.x + 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1)
@@ -372,6 +394,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;
+        r3 = 1;
       }
      }
    }
