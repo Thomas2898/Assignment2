@@ -1,5 +1,6 @@
 float ps = 2; //Player speed
 int death; //Counter for deaths
+int d1;//Count deaths for level 1
 float l = 0; //To change level
 float k = 0; //Used to unlock LevelComplete for lvl1
 float k1 = 0; //Used to unlock LevelComplete for lvl2
@@ -34,6 +35,7 @@ void setup()
   key4 = new Key(width/2 - 40, height/2 + 10);
   key5 = new Key(width/2 - 200, height/2 + - 200);
   death1 = new Death(0, 20);
+  time = new Time(width/2 + 50, 20);
   smooth();
 }
 
@@ -56,6 +58,7 @@ Key key3;
 Key key4;
 Key key5;
 Death death1;
+Time time;
 boolean[] keys = new boolean[1000];
 
 void keyPressed()
@@ -99,12 +102,14 @@ void draw()
     ebutton.updateOnButton(mouseX, mouseY);
     ebutton.mousePressed();
     death1.create();
+    time.create();
     player.update();
     player.render();
     if(lvl == 0)//To stop level1 when levelcomplete box is hit
     {
       level1.create();
       key1.create();
+      d1 = death;
     }
     if(lvl == 1)
     {
@@ -126,7 +131,7 @@ void draw()
     levelc.create();
     println(death);
   }
-    
+    println(d1);
     //Key1 collision
     if(key1.x >= player.pos.x - 15 && key1.x <= player.pos.x + 15 && key1.y >= player.pos.y && key1.y <= player.pos.y + 30)
     {
@@ -302,7 +307,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r1 = 1;
       }
     
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y + 30 >= level2.y + 12 && player.pos.y + 30 <= level2.y + 30 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y + 30 >= level2.y + 12 && player.pos.y + 30 <= level2.y + 30)
@@ -311,7 +316,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r1 = 1;
       }
     }
     
@@ -323,7 +328,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r1 = 1;
       }
     
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y + 30 >= level2.y1 + 12 && player.pos.y + 30 <= level2.y1 + 30 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y + 30 >= level2.y1 + 12 && player.pos.y + 30 <= level2.y1 + 30)
@@ -332,7 +337,7 @@ void draw()
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r = 1;
+        r1 = 1;
       }
     }
    }
