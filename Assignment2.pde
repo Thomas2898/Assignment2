@@ -16,9 +16,9 @@ float r3 = 0; //Used to place the keys back if player hits block for level 4
 float lvl = 0;//Used to change level
 float lvlscreen = 0; //Used to show levelscreen
 float t = 0;//Counting time for level1
-float t1 = 0;
-float t2 = 0;
-float t3 = 0;
+float t1 = 0;//Counting time for level2
+float t2 = 0;//Counting time for level3
+float t3 = 0;//Counting time for level4
 
 void setup()
 {
@@ -315,11 +315,10 @@ void draw()
    //Level 1 hit boxs 
    if(lvl == 0)
    {
-     for(int i = 30; i < 400 ; i+= 30 + 36)
+     for(int i = 30; i < 440 ; i+= 30 + 36)
      {
        if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y >= i + 5 && player.pos.y <= i + 30 + 8 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y >= i && player.pos.y <= i + 30 + 8)
       {
-        println("HIT");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -328,7 +327,6 @@ void draw()
     
        if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y + 30 >= i + 12 && player.pos.y + 30 <= i + 30)
       {
-        println("HIT2");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -341,21 +339,18 @@ void draw()
    //Level2 hit boxs
    if(lvl == 1)
    {
-     println("LEVEL2");
     for(int i = 5; i < 510 ; i+= level2.boxwidth + 36)
     {
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15)
       {
-        println("HIT");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
-        r1 = 1;
+        r1 = 1;//Used to send key back to origin location when plays hit
       }
     
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y + 30 >= level2.y + 12 && player.pos.y + 30 <= level2.y + 30 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y + 30 >= level2.y + 12 && player.pos.y + 30 <= level2.y + 30)
       {
-        println("HIT2");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -367,7 +362,6 @@ void draw()
     {
         if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y >= level2.y1 && player.pos.y <= level2.y1 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y >= level2.y1 && player.pos.y <= level2.y1)
       {
-        println("HIT");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -376,7 +370,6 @@ void draw()
     
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y + 30 >= level2.y1 + 12 && player.pos.y + 30 <= level2.y1 + 30 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y + 30 >= level2.y1 + 12 && player.pos.y + 30 <= level2.y1 + 30)
       {
-        println("HIT2");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -388,14 +381,12 @@ void draw()
    //Level 3 hit boxs 
    if(lvl == 2)
    {
-     println("LEVEL3");
      for(int i = 40 ; i < 440 ; i+=40)
      {
         level3.x1 = level3.cx + sin(level3.theta) * (level3.radius - i);
         level3.y1 = level3.cy - cos(level3.theta) * (level3.radius - i);
        if(player.pos.x - 15 >= level3.x1 && player.pos.x - 15 <= level3.x1 + 30 && player.pos.y >= level3.y1 && player.pos.y <= level3.y1 + 30 || player.pos.x + 15 >= level3.x1 && player.pos.x + 15 <= level3.x1 + 30 && player.pos.y >= level3.y1 && player.pos.y <= level3.y1 + 30)
       {
-        println("HIT");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -404,7 +395,6 @@ void draw()
     
        if(player.pos.x - 15 >= level3.x1 && player.pos.x - 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1 || player.pos.x + 15 >= level3.x1 && player.pos.x + 15 <= level3.x1 + 30 && player.pos.y + 30 >= level3.y1 && player.pos.y + 30 <= level3.y1)
       {
-        println("HIT2");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -415,7 +405,6 @@ void draw()
         level3.y2 = level3.cy - cos(level3.theta1) * (level3.radius - i);
        if(player.pos.x - 15 >= level3.x2 && player.pos.x - 15 <= level3.x2 + 30 && player.pos.y >= level3.y2 && player.pos.y <= level3.y2 + 30 || player.pos.x + 15 >= level3.x2 && player.pos.x + 15 <= level3.x2 + 30 && player.pos.y >= level3.y2 && player.pos.y <= level3.y2 + 30)
       {
-        println("HIT");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -424,7 +413,6 @@ void draw()
     
        if(player.pos.x - 15 >= level3.x2 && player.pos.x - 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2 || player.pos.x + 15 >= level3.x2 && player.pos.x + 15 <= level3.x2 + 30 && player.pos.y + 30 >= level3.y2 && player.pos.y + 30 <= level3.y2)
       {
-        println("HIT2");
         player.pos.x = width/2;
         player.pos.y = height - 30;
         death++;
@@ -433,9 +421,9 @@ void draw()
     }
    }
     
+   //Level4 hit boxs
    if(lvl == 3)
    {
-     println("LEVEL4");
      for(float i = 0.2 ; i < 5.9 ; i+=0.2)
      {
          level4.x1 = level4.cx + sin(level4.theta + i) * (level4.radius - 10);
@@ -443,7 +431,6 @@ void draw()
       
       if(player.pos.x - 15 >= level4.x1 && player.pos.x - 15 <= level4.x1 + 30 && player.pos.y >= level4.y1 && player.pos.y <= level4.y1 + 30 || player.pos.x + 15 >= level4.x1 && player.pos.x + 15 <= level4.x1 + 30 && player.pos.y >= level4.y1 && player.pos.y <= level4.y1 + 30)
       {
-        println("no");
         player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;
@@ -452,7 +439,23 @@ void draw()
       
        if(player.pos.x - 15 >= level4.x1 && player.pos.x - 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1 || player.pos.x + 15 >= level4.x1 && player.pos.x + 15 <= level4.x1 + 30 && player.pos.y + 30 >= level4.y1 && player.pos.y + 30 <= level4.y1)
       {
-        println("HIT2");
+        player.pos.x = width/2;
+        player.pos.y = height/2 - 15;
+        death++;
+        r3 = 1;
+      }
+      
+       
+      if(player.pos.x - 15 >= level4.x && player.pos.x - 15 <= level4.x + 30 && player.pos.y >= level4.y && player.pos.y <= level4.y + 30 || player.pos.x + 15 >= level4.x && player.pos.x + 15 <= level4.x + 30 && player.pos.y >= level4.y && player.pos.y <= level4.y + 30)
+      {
+        player.pos.x = width/2;
+        player.pos.y = height/2 - 15;
+        death++;
+        r3 = 1;
+      }
+      
+      if(player.pos.x - 15 >= level4.x && player.pos.x - 15 <= level4.x + 30 && player.pos.y + 30 >= level4.y && player.pos.y + 30 <= level4.y || player.pos.x + 15 >= level4.x && player.pos.x + 15 <= level4.x + 30 && player.pos.y + 30 >= level4.y && player.pos.y + 30 <= level4.y)
+      {
         player.pos.x = width/2;
         player.pos.y = height/2 - 15;
         death++;

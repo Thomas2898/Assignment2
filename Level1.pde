@@ -17,7 +17,7 @@ class Level1
     noStroke();
     fill(100, 0, 100);
     
-    for(int i = 40; i < 400 ; i+= boxwidth + 36)
+    for(int i = 40; i < 440 ; i+= boxwidth + 36)
     {
        rect(x, i, boxwidth, boxwidth);
     }
