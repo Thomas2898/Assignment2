@@ -315,6 +315,7 @@ void draw()
    //Level 1 hit boxs 
    if(lvl == 0)
    {
+     ps = 2;
      for(int i = 30; i < 440 ; i+= 30 + 36)
      {
        if(player.pos.x - 15 >= level1.x && player.pos.x - 15 <= level1.x + 30 && player.pos.y >= i + 5 && player.pos.y <= i + 30 + 8 || player.pos.x + 15 >= level1.x && player.pos.x + 15 <= level1.x + 30 && player.pos.y >= i && player.pos.y <= i + 30 + 8)
@@ -339,6 +340,7 @@ void draw()
    //Level2 hit boxs
    if(lvl == 1)
    {
+     ps = 2;
     for(int i = 5; i < 510 ; i+= level2.boxwidth + 36)
     {
        if(player.pos.x - 15 >= i && player.pos.x - 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15 || player.pos.x + 15 >= i && player.pos.x + 15 <= i + 30 && player.pos.y >= level2.y && player.pos.y <= level2.y + 15)
@@ -381,6 +383,7 @@ void draw()
    //Level 3 hit boxs 
    if(lvl == 2)
    {
+     ps = 2;
      for(int i = 40 ; i < 440 ; i+=40)
      {
         level3.x1 = level3.cx + sin(level3.theta) * (level3.radius - i);
@@ -424,6 +427,7 @@ void draw()
    //Level4 hit boxs
    if(lvl == 3)
    {
+     ps = 3;
      for(float i = 0.2 ; i < 5.9 ; i+=0.2)
      {
          level4.x1 = level4.cx + sin(level4.theta + i) * (level4.radius - 10);
